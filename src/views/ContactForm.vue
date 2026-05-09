@@ -1,12 +1,12 @@
 <script setup>
 import { ref, computed, onMounted } from "vue";
 import { useRouter, useRoute } from "vue-router";
+
 import {
   getContactById,
   addContact,
   updateContact,
   isEmailUnique,
-  isContactUnique,
 } from "@/storage";
 
 const router = useRouter();
@@ -99,7 +99,7 @@ function handleSubmit() {
     <div class="form-card">
       <form @submit.prevent="handleSubmit">
         <div class="field">
-          <label><i class="pi pi-user"></i> Name</label>
+          <label><i class="pi pi-user"></i> Name </label>
           <input v-model="form.name" type="text" placeholder="Name" />
           <span class="error" v-if="errors.name"
             ><i class="pi pi-exclamation-circle"></i> {{ errors.name }}</span
@@ -107,35 +107,35 @@ function handleSubmit() {
         </div>
 
         <div class="field">
-          <label><i class="pi pi-phone"></i> Contact</label>
+          <label><i class="pi pi-phone"></i> Contact </label>
           <input
             v-model="form.contact"
             type="text"
             placeholder="9 digit number"
           />
           <span class="error" v-if="errors.contact"
-            ><i class="pi pi-exclamation-circle"></i> {{ errors.contact }}</span
-          >
+            ><i class="pi pi-exclamation-circle"></i> {{ errors.contact }}
+          </span>
         </div>
 
         <div class="field">
-          <label><i class="pi pi-envelope"></i> Email</label>
+          <label><i class="pi pi-envelope"></i> Email </label>
           <input
             v-model="form.email"
             type="email"
             placeholder="email@example.com"
           />
           <span class="error" v-if="errors.email"
-            ><i class="pi pi-exclamation-circle"></i> {{ errors.email }}</span
-          >
+            ><i class="pi pi-exclamation-circle"></i> {{ errors.email }}
+          </span>
         </div>
 
         <div class="field">
           <label><i class="pi pi-image"></i> Picture</label>
           <input type="file" accept="image/*" @change="handleImage" />
           <span class="error" v-if="errors.picture"
-            ><i class="pi pi-exclamation-circle"></i> {{ errors.picture }}</span
-          >
+            ><i class="pi pi-exclamation-circle"></i> {{ errors.picture }}
+          </span>
           <img v-if="picturePreview" :src="picturePreview" class="preview" />
         </div>
 

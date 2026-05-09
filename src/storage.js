@@ -33,8 +33,8 @@ export function isEmailUnique(email, excludeId = null) {
   return !getContacts().some((c) => c.email === email && c.id !== excludeId);
 }
 
-export function isContactUnique(contact, excludeId = null) {
-  return !getContacts().some(
-    (c) => c.contact === contact && c.id !== excludeId,
-  );
-}
+// export function isContactUnique(contact, excludeId = null) {
+//   return !getContacts().some(
+//     (c) => c.contact === contact && c.id !== excludeId,
+//   );
+// }

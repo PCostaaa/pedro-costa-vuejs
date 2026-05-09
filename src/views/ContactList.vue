@@ -6,6 +6,7 @@ import { deleteContact, getContacts } from "@/storage";
 import { isAuthenticated } from "@/auth";
 import { logout } from "@/auth";
 import DeleteModal from "@/components/DeleteModal.vue";
+import ContactCard from "@/components/ContactCard.vue";
 
 const router = useRouter();
 const contacts = ref(getContacts());
@@ -98,41 +99,12 @@ function handleDelete(id) {
       <!-- Cards View -->
       <h2 class="section-title">Cards</h2>
       <div class="cards">
-        <div class="card" v-for="contact in contacts" :key="contact.id">
-          <img :src="contact.picture" :alt="contact.name" />
-          <h3>{{ contact.name }}</h3>
-          <p class="contact-info">
-            <i class="pi pi-phone"></i> {{ contact.contact }}
-          </p>
-          <p class="contact-info">
-            <i class="pi pi-envelope"></i> {{ contact.email }}
-          </p>
-          <div class="actions">
-            <template v-if="isAuthenticated()">
-              <RouterLink
-                class="btn btn-sm"
-                :to="{ name: 'contact-detail', params: { id: contact.id } }"
-              >
-                <i class="pi pi-eye"></i> View
-              </RouterLink>
-              <RouterLink
-                class="btn btn-sm"
-                :to="{ name: 'contact-edit', params: { id: contact.id } }"
-              >
-                <i class="pi pi-pencil"></i> Edit
-              </RouterLink>
-              <button
-                class="btn btn-sm btn-danger"
-                @click="confirmDelete(contact)"
-              >
-                <i class="pi pi-trash"></i> Delete
-              </button>
-            </template>
-            <template v-else>
-              <span class="auth-note">Login to view contact details</span>
-            </template>
-          </div>
-        </div>
+        <ContactCard
+          v-for="contact in contacts"
+          :key="contact.id"
+          :contact="contact"
+          @delete-contact="confirmDelete"
+        />
       </div>
 
       <!-- List View -->
