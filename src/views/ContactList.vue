@@ -42,24 +42,24 @@ function handleCancelDelete() {
   contactToDelete.value = null;
 }
 
-function goToDetailContact(id) {
-  router.push({
-    name: "contact-detail",
-    params: { id },
-  });
-}
+// function goToDetailContact(id) {
+//   router.push({
+//     name: "contact-detail",
+//     params: { id },
+//   });
+// }
 
-function goToEditContact(id) {
-  router.push({
-    name: "contact-edit",
-    params: { id },
-  });
-}
+// function goToEditContact(id) {
+//   router.push({
+//     name: "contact-edit",
+//     params: { id },
+//   });
+// }
 
-function handleDelete(id) {
-  deleteContact(id);
-  contacts.value = getContacts();
-}
+// function handleDelete(id) {
+//   deleteContact(id);
+//   contacts.value = getContacts();
+// }
 </script>
 
 <template>
@@ -74,6 +74,7 @@ function handleDelete(id) {
         >
           + Add Contact
         </button>
+
         <button
           v-if="isAuthenticated()"
           class="btn btn-logout"
@@ -81,6 +82,7 @@ function handleDelete(id) {
         >
           Logout
         </button>
+
         <button
           v-else
           class="btn btn-primary"
@@ -97,7 +99,7 @@ function handleDelete(id) {
 
     <template v-else>
       <!-- Cards View -->
-      <h2 class="section-title">Cards</h2>
+      <!-- <h2 class="section-title">Cards</h2>
       <div class="cards">
         <ContactCard
           v-for="contact in contacts"
@@ -105,7 +107,7 @@ function handleDelete(id) {
           :contact="contact"
           @delete-contact="confirmDelete"
         />
-      </div>
+      </div> -->
 
       <!-- List View -->
       <h2 class="section-title">List</h2>
@@ -153,7 +155,7 @@ function handleDelete(id) {
                 </button>
               </template>
               <template v-else>
-                <span class="auth-note">Login to view contact details</span>
+                <span class="auth-note">Login to edit contact</span>
               </template>
             </td>
           </tr>

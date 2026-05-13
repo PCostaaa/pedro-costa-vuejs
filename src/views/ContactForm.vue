@@ -37,7 +37,9 @@ onMounted(() => {
 function handleImage(e) {
   const file = e.target.files[0];
   if (!file) return;
+
   const reader = new FileReader();
+
   reader.onload = (ev) => {
     form.value.picture = ev.target.result;
     picturePreview.value = ev.target.result;
@@ -72,6 +74,7 @@ function validate() {
 
 function handleSubmit() {
   if (!validate()) return;
+
   if (isEditing.value) {
     updateContact({ ...form.value, id: route.params.id });
   } else {
