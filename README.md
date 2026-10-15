@@ -2,10 +2,7 @@
 
 A contact management app built with Vue 3, delivered from scratch to a working, tested product as part of a technical assessment.
 
-**Live demo:** [add link here](#) · **Portfolio:** [pcostaaa.github.io/Portfolio](https://pcostaaa.github.io/Portfolio/)
-
-<!-- Optional: add a screenshot -->
-<!-- ![Preview](./public/preview.png) -->
+**Portfolio:** [pcostaaa.github.io/Portfolio](https://pcostaaa.github.io/Portfolio/)
 
 ## Features
 
